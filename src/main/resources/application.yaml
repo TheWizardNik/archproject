@@ -1,0 +1,27 @@
+logging:
+  level:
+    org.hibernate.type.descriptor.sql: TRACE
+    com.griddynamics.interviewer.aop.LoggingAspect: DEBUG
+
+spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+
+  main:
+    allow-bean-definition-overriding: false
+
+  datasource:
+    url: jdbc:h2:mem:${random.uuid}
+    username: sa
+    password:
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+
+  liquibase:
+    enabled: true
+    change-log: classpath*:/config/liquibase/master.xml
+    contexts: dev
