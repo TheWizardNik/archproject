@@ -21,10 +21,10 @@ public class News {
     private String title;
 
     @Column(name = "text", nullable = false)
-    private List<String> texts;
+    private String text;
 
-    @Column(name = "images", nullable = false)
-    private List<String> images;
+    @Column(name = "image", nullable = false)
+    private String image;
 
     @OneToMany(mappedBy = "news", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Comment> comments = new ArrayList<>();

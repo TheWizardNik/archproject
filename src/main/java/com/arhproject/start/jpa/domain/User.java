@@ -65,11 +65,11 @@ public class User {
     @JoinTable(
             name = "user_followed_user",
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)}
+            inverseJoinColumns = {@JoinColumn(name = "followed_user_id", referencedColumnName = "id", nullable = false)}
     )
     private List<User> followedUsers = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "publications", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "authors", fetch = FetchType.LAZY)
     private List<Publication> publications = new ArrayList<>();
 
     @Embedded
