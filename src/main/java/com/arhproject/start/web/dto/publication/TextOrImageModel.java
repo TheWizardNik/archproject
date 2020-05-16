@@ -4,11 +4,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-@Builder
+
 @Getter
 @Setter
-public class PublicationShortModel {
-    private Long id;
-    private String title;
-    private String text;
+@Builder
+public class TextOrImageModel {
+    private String body;
+    private Boolean isText;
 }

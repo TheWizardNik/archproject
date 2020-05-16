@@ -14,8 +14,7 @@ import java.util.List;
 public class PublicationModel {
     private Long id;
     private List<Long> userIds = new ArrayList<>();
-    private String text;
-    private String image;
+    private List<TextOrImageModel> textOrImageModels = new ArrayList<>();
     private String title;
     private List<String> tags = new ArrayList<>();
     private List<Long> commentIds = new ArrayList<>();

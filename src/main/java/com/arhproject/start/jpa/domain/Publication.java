@@ -20,8 +20,7 @@ public class Publication {
     @Column(name = "title", nullable = false)
     private String title;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "publicationId")
-    @Column(name = "text_or_image", nullable = false)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "publication")
     private List<TextOrImage> textOrImages = new ArrayList<>();
 
     @OneToMany(mappedBy = "publicationId", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)

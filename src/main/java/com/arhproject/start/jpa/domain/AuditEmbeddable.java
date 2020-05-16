@@ -16,9 +16,9 @@ public class AuditEmbeddable {
 
     @CreatedDate
     @Column(name = "created_time")
-    private LocalDateTime createdTime;
+    private LocalDateTime createdTime = LocalDateTime.now();
 
     @LastModifiedDate
     @Column(name = "last_modified_time")
-    private LocalDateTime lastModifiedTime;
+    private LocalDateTime lastModifiedTime = LocalDateTime.now();
 }

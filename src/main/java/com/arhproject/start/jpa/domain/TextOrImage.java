@@ -15,8 +15,9 @@ public class TextOrImage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "publication_id", nullable = false)
-    private Long publicationId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "publication_id", nullable = false)
+    private Publication publication;
 
     @Column(name = "body", nullable = false)
     private String body;

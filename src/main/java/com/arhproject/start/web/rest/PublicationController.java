@@ -5,7 +5,6 @@ import com.arhproject.start.service.PublicationService;
 import com.arhproject.start.web.dto.failure.FailureBodyModel;
 import com.arhproject.start.web.dto.publication.CreatePublicationDto;
 import com.arhproject.start.web.dto.publication.PublicationModel;
-import com.arhproject.start.web.dto.publication.PublicationShortModel;
 import com.arhproject.start.web.dto.publication.UpdatePublicationDto;
 import com.arhproject.start.web.mapper.PublicationMapper;
 import io.swagger.annotations.ApiResponse;
@@ -49,9 +48,9 @@ public class PublicationController {
     }
 
     @GetMapping
-    public ResponseEntity<List<PublicationShortModel>> getAll() {
-        List<PublicationShortModel> publicationShortModels = publicationService.getAll().stream()
-                .map(publicationMapper::toShortModel)
+    public ResponseEntity<List<PublicationModel>> getAll() {
+        List<PublicationModel> publicationShortModels = publicationService.getAll().stream()
+                .map(publicationMapper::toModel)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(publicationShortModels);
     }

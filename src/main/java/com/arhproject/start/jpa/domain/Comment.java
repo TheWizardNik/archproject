@@ -18,7 +18,7 @@ public class Comment {
     @Column(name = "text", nullable = false)
     private String text;
 
-    @Column(name = "publication_id", nullable = false)
+    @Column(name = "publication_id")
     private Long publicationId;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
