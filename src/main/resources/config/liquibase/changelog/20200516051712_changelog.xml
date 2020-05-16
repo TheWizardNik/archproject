@@ -2,14 +2,12 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
-    <changeSet author="Nikita (generated)" id="1584652231855-1">
+    <changeSet author="Nikita (generated)" id="1589606264801-1">
         <createTable tableName="news">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="newsPK"/>
             </column>
-            <column name="created_time" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
+            <column name="created_time" type="TIMESTAMP"/>
             <column name="last_modified_time" type="TIMESTAMP"/>
             <column name="image" type="VARCHAR(255)">
                 <constraints nullable="false"/>
@@ -22,43 +20,38 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-2">
+    <changeSet author="Nikita (generated)" id="1589606264801-2">
         <createTable tableName="notification">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="notificationPK"/>
             </column>
-            <column name="created_time" type="TIMESTAMP">
+            <column name="created_time" type="TIMESTAMP"/>
+            <column name="last_modified_time" type="TIMESTAMP"/>
+            <column name="publication_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="last_modified_time" type="TIMESTAMP"/>
-            <column name="image" type="VARCHAR(255)"/>
             <column name="text" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="image" type="VARCHAR(255)"/>
             <column name="user_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-            <column name="news_id" type="BIGINT"/>
-            <column name="publication_id" type="BIGINT"/>
         </createTable>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-3">
+    <changeSet author="Nikita (generated)" id="1589606264801-3">
         <createTable tableName="publication">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="publicationPK"/>
             </column>
             <column name="created_time" type="TIMESTAMP"/>
             <column name="last_modified_time" type="TIMESTAMP"/>
-            <column name="image" type="VARCHAR(255)"/>
-            <column name="text" type="VARCHAR(255)">
-                <constraints nullable="false"/>
-            </column>
             <column name="title" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-4">
+    <changeSet author="Nikita (generated)" id="1589606264801-4">
         <createTable tableName="publication_tag">
             <column name="publication_id" type="BIGINT">
                 <constraints nullable="false"/>
@@ -68,7 +61,7 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-5">
+    <changeSet author="Nikita (generated)" id="1589606264801-5">
         <createTable tableName="publication_user">
             <column name="publication_id" type="BIGINT">
                 <constraints nullable="false"/>
@@ -78,7 +71,7 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-6">
+    <changeSet author="Nikita (generated)" id="1589606264801-6">
         <createTable tableName="role">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="rolePK"/>
@@ -88,7 +81,7 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-7">
+    <changeSet author="Nikita (generated)" id="1589606264801-7">
         <createTable tableName="tag">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="tagPK"/>
@@ -98,7 +91,23 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-8">
+    <changeSet author="Nikita (generated)" id="1589606264801-8">
+        <createTable tableName="text_or_image">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="text_or_imagePK"/>
+            </column>
+            <column name="body" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_text" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="publication_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Nikita (generated)" id="1589606264801-9">
         <createTable tableName="user_followed_user">
             <column name="user_id" type="BIGINT">
                 <constraints nullable="false"/>
@@ -108,16 +117,14 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-9">
+    <changeSet author="Nikita (generated)" id="1589606264801-10">
         <createTable tableName="usr">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="usrPK"/>
             </column>
             <column name="about" type="VARCHAR(255)"/>
             <column name="address" type="VARCHAR(255)"/>
-            <column name="created_time" type="TIMESTAMP">
-                <constraints nullable="true"/>
-            </column>
+            <column name="created_time" type="TIMESTAMP"/>
             <column name="last_modified_time" type="TIMESTAMP"/>
             <column name="email" type="VARCHAR(255)">
                 <constraints nullable="false"/>
@@ -141,7 +148,7 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-10">
+    <changeSet author="Nikita (generated)" id="1589606264801-11">
         <createTable tableName="usr_role">
             <column name="user_id" type="BIGINT">
                 <constraints nullable="false"/>
@@ -151,73 +158,73 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-11">
+    <changeSet author="Nikita (generated)" id="1589606264801-12">
         <addUniqueConstraint columnNames="email" constraintName="UC_USREMAIL_COL" tableName="usr"/>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-12">
+    <changeSet author="Nikita (generated)" id="1589606264801-13">
         <addUniqueConstraint columnNames="login" constraintName="UC_USRLOGIN_COL" tableName="usr"/>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-13">
+    <changeSet author="Nikita (generated)" id="1589606264801-14">
         <addForeignKeyConstraint baseColumnNames="followed_user_id" baseTableName="user_followed_user"
                                  constraintName="FK1ig2b4ai4ma4fns0ag4hagrq3" deferrable="false"
                                  initiallyDeferred="false" referencedColumnNames="id" referencedTableName="usr"
                                  validate="true"/>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-14">
-        <addForeignKeyConstraint baseColumnNames="news_id" baseTableName="notification"
-                                 constraintName="FK5tou9qyyw308npskvhdjtf3i0" deferrable="false"
-                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="news"
-                                 validate="true"/>
-    </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-15">
+    <changeSet author="Nikita (generated)" id="1589606264801-15">
         <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="usr_role"
                                  constraintName="FK8nnhbni24gsa159a2e1dd5mr" deferrable="false"
                                  initiallyDeferred="false" referencedColumnNames="id" referencedTableName="role"
                                  validate="true"/>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-16">
+    <changeSet author="Nikita (generated)" id="1589606264801-16">
         <addForeignKeyConstraint baseColumnNames="publication_id" baseTableName="publication_user"
                                  constraintName="FKdnedi9dds44lq00nq9d7pkpuc" deferrable="false"
                                  initiallyDeferred="false" referencedColumnNames="id" referencedTableName="publication"
                                  validate="true"/>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-17">
+    <changeSet author="Nikita (generated)" id="1589606264801-17">
         <addForeignKeyConstraint baseColumnNames="publication_id" baseTableName="publication_tag"
                                  constraintName="FKeouymddmgkq02vwbsgf5btyqi" deferrable="false"
                                  initiallyDeferred="false" referencedColumnNames="id" referencedTableName="publication"
                                  validate="true"/>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-18">
+    <changeSet author="Nikita (generated)" id="1589606264801-18">
         <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="notification"
                                  constraintName="FKevidnapp9upsd44aq70k5kcxi" deferrable="false"
                                  initiallyDeferred="false" referencedColumnNames="id" referencedTableName="usr"
                                  validate="true"/>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-19">
+    <changeSet author="Nikita (generated)" id="1589606264801-19">
+        <addForeignKeyConstraint baseColumnNames="publication_id" baseTableName="text_or_image"
+                                 constraintName="FKf3hh8p6alr9pgn6kn2msooduj" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="publication"
+                                 validate="true"/>
+    </changeSet>
+    <changeSet author="Nikita (generated)" id="1589606264801-20">
         <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="usr_role"
                                  constraintName="FKjl6gufvtdoy0djihposug5sbv" deferrable="false"
                                  initiallyDeferred="false" referencedColumnNames="id" referencedTableName="usr"
                                  validate="true"/>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-20">
+    <changeSet author="Nikita (generated)" id="1589606264801-21">
         <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_followed_user"
                                  constraintName="FKjwd5bjscaivi6vuffwhg2rmn0" deferrable="false"
                                  initiallyDeferred="false" referencedColumnNames="id" referencedTableName="usr"
                                  validate="true"/>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-21">
+    <changeSet author="Nikita (generated)" id="1589606264801-22">
         <addForeignKeyConstraint baseColumnNames="tag_id" baseTableName="publication_tag"
                                  constraintName="FKky3c1whd3tnfb8hdk8jik12to" deferrable="false"
                                  initiallyDeferred="false" referencedColumnNames="id" referencedTableName="tag"
                                  validate="true"/>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-22">
+    <changeSet author="Nikita (generated)" id="1589606264801-23">
         <addForeignKeyConstraint baseColumnNames="publication_id" baseTableName="notification"
-                                 constraintName="FKn1m2xtw0atthyfel99itlnsan" deferrable="false"
-                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="publication"
+                                 constraintName="FKpdj6j74avqsk3u8xvkadks11y" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="news"
                                  validate="true"/>
     </changeSet>
-    <changeSet author="Nikita (generated)" id="1584652231855-23">
+    <changeSet author="Nikita (generated)" id="1589606264801-24">
         <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="publication_user"
                                  constraintName="FKs9qh14kki0c2dv75kwdpkonk" deferrable="false"
                                  initiallyDeferred="false" referencedColumnNames="id" referencedTableName="usr"

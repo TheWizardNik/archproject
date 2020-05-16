@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class AuditEmbeddable {
 
     @CreatedDate
-    @Column(name = "created_time", nullable = false)
+    @Column(name = "created_time")
     private LocalDateTime createdTime;
 
     @LastModifiedDate

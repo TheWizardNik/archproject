@@ -20,13 +20,11 @@ public class Publication {
     @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "text", nullable = false)
-    private String text;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "publicationId")
+    @Column(name = "text_or_image", nullable = false)
+    private List<TextOrImage> textOrImages = new ArrayList<>();
 
-    @Column(name = "image", nullable = false)
-    private String image;
-
-    @OneToMany(mappedBy = "publication", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "publicationId", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Comment> comments = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.LAZY)
