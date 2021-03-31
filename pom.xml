@@ -30,7 +30,7 @@
         <skip.tests>${skipTests}</skip.tests>
         <skipTests>false</skipTests>
 
-        <guava.version>28.2-jre</guava.version>
+        <guava.version>29.0-jre</guava.version>
         <commons-lang3.version>3.9</commons-lang3.version>
         <commons-collections4.version>4.4</commons-collections4.version>
         <commons-codec.version>1.14</commons-codec.version>
