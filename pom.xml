@@ -20,7 +20,7 @@
         <java.version>1.8</java.version>
         <spring-boot.version>2.2.4.RELEASE</spring-boot.version>
 
-        <liquibase.version>3.8.6</liquibase.version>
+        <liquibase.version>4.8.0</liquibase.version>
         <liquibase-hibernate5.version>3.6</liquibase-hibernate5.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
 
